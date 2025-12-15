@@ -12,6 +12,7 @@ import shutil
 import sys
 from contextlib import contextmanager
 from datetime import date, datetime, timedelta, timezone
+import pytz
 from io import BytesIO, StringIO
 from math import ceil, sqrt
 from pathlib import Path
@@ -1014,8 +1015,10 @@ def _check_dt(dt):
     if (
         not isinstance(dt, datetime)
         or dt.tzinfo is None
-        or dt.tzinfo is not timezone.utc
+        or not ((dt.tzinfo is timezone.utc) or (dt.tzinfo.zone is pytz.timezone("UTC").zone))
+        # or not isinstance(dt.tzinfo, (timezone.utc, pytz.timezone("UTC")))
     ):
+        pytz.UTC
         raise ValueError(f"Date must be datetime object in UTC: {repr(dt)}")
 
 
