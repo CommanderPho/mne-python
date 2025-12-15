@@ -49,6 +49,7 @@ def _get_supported():
         read_raw_nsx,
         read_raw_persyst,
         read_raw_snirf,
+        read_raw_xdf,
     )
 
     return {
@@ -90,6 +91,8 @@ def _get_supported():
         ".asc": dict(EyeLink=read_raw_eyelink),
         ".ns3": dict(NSx=read_raw_nsx),
         ".lay": dict(Persyst=read_raw_persyst),
+        # XDF
+        ".xdf": dict(XDF=read_raw_xdf),
     }
 
 
@@ -151,6 +154,7 @@ def read_raw(fname, *, preload=False, verbose=None, **kwargs) -> BaseRaw:
     * `~mne.io.read_raw_nsx`
     * `~mne.io.read_raw_persyst`
     * `~mne.io.read_raw_snirf`
+    * `~mne.io.read_raw_xdf`
 
     Parameters
     ----------
