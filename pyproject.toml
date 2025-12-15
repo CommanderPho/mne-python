@@ -98,6 +98,7 @@ dependencies = [
   "packaging",
   "pooch >= 1.5",
   "scipy >= 1.11",  # released 2023-06-28, will become 1.12 on 2026-01-19
+  "pytz>=2025.2",
   "tqdm",
 ]
 description = "MNE-Python project for MEG and EEG data analysis."
